@@ -1,0 +1,6 @@
+pickaxe:
+  enabled: true
+  lore:
+    - "&7Blocks: &b%blocks%"
+    - "&7Level: &b%level% &8(&a%percentage%%&8)"
+    - "&7XP: &c%xp% / %xp_needed%"
