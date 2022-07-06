@@ -6,3 +6,6 @@ commands:
   pickaxe:
     aliases:
       - pick
+  menu:
+    description: Test
+
