@@ -1,5 +1,6 @@
 package org.zhaojason.testingplugin.Commands;
 
+import de.tr7zw.nbtapi.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Item;
@@ -27,9 +28,10 @@ public class GeneratorCommand extends CommandHandler {
         if(sender instanceof Player){
             Player p = (Player) sender;
             ItemStack coalGen = new ItemStack(Material.COAL_ORE);
-            new ItemStackBuilder(coalGen).setName(Chat.color("&8Coal generator")).build();
-            new ItemStackBuilder(coalGen).nbt().set("generator", "COALORE").build();
-            p.getInventory().addItem(coalGen);
+            ItemStackBuilder b = new ItemStackBuilder(coalGen);
+            b.setName(Chat.color("&8Coal generator"));
+            ItemStackBuilder.Nbt i = b.nbt().set("generator", "COALORE");
+            p.getInventory().addItem(i.build());
         }
     }
 
