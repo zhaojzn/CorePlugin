@@ -18,5 +18,6 @@ public class DataListeners implements Listener {
         if (!main.getDataManager().hasPlayed(e.getPlayer().getUniqueId())){
             main.getDataManager().newPlayer(e.getPlayer().getUniqueId());
         }
+
     }
 }
