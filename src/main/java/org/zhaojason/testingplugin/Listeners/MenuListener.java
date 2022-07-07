@@ -22,7 +22,7 @@ public class MenuListener implements Listener {
         Player p = (Player) e.getWhoClicked();
         if(ChatColor.translateAlternateColorCodes('&',e.getView().getTitle()).equals(ChatColor.translateAlternateColorCodes('&', "&7Custom menu"))){
             e.setCancelled(true);
-            new PickaxeCommand(main).givePickaxe(p);
+            new PickaxeUtils(main).givePickaxe(p);
         }
 
     }

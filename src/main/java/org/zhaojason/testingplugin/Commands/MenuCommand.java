@@ -11,10 +11,23 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.zhaojason.testingplugin.Main;
 
-public class MenuCommand implements CommandExecutor {
+import java.util.List;
+
+public class MenuCommand extends CommandHandler {
+
+
+    public MenuCommand() {
+        super(
+                "menu",
+                new String[]{"menus"},
+                "Menu command",
+                "defualt"
+        );
+    }
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
+    public void execute(CommandSender sender, String[] args) {
         if(sender instanceof Player){
             Player p = (Player) sender;
 
@@ -29,6 +42,10 @@ public class MenuCommand implements CommandExecutor {
             p.openInventory(inv);
 
         }
-        return false;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, String[] args) {
+        return null;
     }
 }

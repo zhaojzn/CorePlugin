@@ -2,6 +2,11 @@ package org.zhaojason.testingplugin.utils;
 
 import de.tr7zw.nbtapi.NBTItem;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.zhaojason.testingplugin.Main;
 
 import java.util.ArrayList;
@@ -38,5 +43,31 @@ public class PickaxeUtils {
         nbti.setDouble("PickaxeXP_NEEDED",nbti.getDouble("PickaxeXP_NEEDED") * 1.25);
         nbti.setInteger("PickaxeLEVEL", nbti.getInteger("PickaxeLEVEL")+1);
         return nbti;
+    }
+
+    public void givePickaxe(Player player){
+        ItemStack i = new ItemStack(Material.WOODEN_PICKAXE);
+        ItemMeta i_meta = i.getItemMeta();
+        i_meta.setUnbreakable(true);
+        i_meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&7Basic Pickaxe"));
+        i_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        i.setItemMeta(i_meta);
+
+        NBTItem nbti = new NBTItem(i);
+        nbti.setInteger("PickaxeXP", 0);
+        nbti.setInteger("PickaxeBLOCKS", 0);
+        nbti.setInteger("PickaxeLEVEL", 1);
+        nbti.setDouble("PickaxeXP_NEEDED", 50.0);
+
+        PickaxeUtils p = new PickaxeUtils(main);
+        List<String> lore = p.updateLore(nbti);
+
+        ItemStack finalItem = nbti.getItem();
+        ItemMeta finalItemMeta = finalItem.getItemMeta();
+        finalItemMeta.setLore(lore);
+        finalItem.setItemMeta(finalItemMeta);
+
+        player.getInventory().addItem(finalItem);
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7You have received a custom pickaxe"));
     }
 }

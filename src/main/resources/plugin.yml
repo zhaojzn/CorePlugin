@@ -2,10 +2,3 @@ name: CorePlugin
 version: '${project.version}'
 main: org.zhaojason.testingplugin.Main
 api-version: 1.19
-commands:
-  pickaxe:
-    aliases:
-      - pick
-  menu:
-    description: Test
-

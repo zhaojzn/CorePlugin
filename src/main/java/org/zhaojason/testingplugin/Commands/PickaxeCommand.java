@@ -15,51 +15,34 @@ import org.zhaojason.testingplugin.utils.PickaxeUtils;
 
 import java.util.List;
 
-public class PickaxeCommand implements CommandExecutor {
+public class PickaxeCommand extends CommandHandler {
 
+    private Main main;
 
-
-    private final Main main;
     public PickaxeCommand(Main main) {
+        super(
+                "pickaxe",
+                new String[]{"pick"},
+                "Pickaxe command",
+                "defualt"
+        );
         this.main = main;
+
+
+    }
+
+
+    @Override
+    public void execute(CommandSender sender, String[] args) {
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+            new PickaxeUtils(main).givePickaxe(player);
+
+        }
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
-            givePickaxe(player);
-
-        }
-        return false;
+    public List<String> onTabComplete(CommandSender sender, String[] args) {
+        return null;
     }
-
-    public void givePickaxe(Player player){
-        ItemStack i = new ItemStack(Material.WOODEN_PICKAXE);
-        ItemMeta i_meta = i.getItemMeta();
-        i_meta.setUnbreakable(true);
-        i_meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&7Basic Pickaxe"));
-        i_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        i.setItemMeta(i_meta);
-
-        NBTItem nbti = new NBTItem(i);
-        nbti.setInteger("PickaxeXP", 0);
-        nbti.setInteger("PickaxeBLOCKS", 0);
-        nbti.setInteger("PickaxeLEVEL", 1);
-        nbti.setDouble("PickaxeXP_NEEDED", 50.0);
-
-        PickaxeUtils p = new PickaxeUtils(main);
-        List<String> lore = p.updateLore(nbti);
-
-        ItemStack finalItem = nbti.getItem();
-        ItemMeta finalItemMeta = finalItem.getItemMeta();
-        finalItemMeta.setLore(lore);
-        finalItem.setItemMeta(finalItemMeta);
-
-        player.getInventory().addItem(finalItem);
-        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7You have received a custom pickaxe"));
-    }
-
-
 }

@@ -19,8 +19,8 @@ public final class Main extends JavaPlugin  {
     public void onEnable() {
         getConfig().options().copyDefaults();
         saveDefaultConfig();
-        getCommand("pickaxe").setExecutor(new PickaxeCommand(this));
-        getCommand("menu").setExecutor(new MenuCommand());
+        new PickaxeCommand(this);
+        new MenuCommand();
 
         Bukkit.getServer().getPluginManager().registerEvents(new MoveEvent(), this);
         Bukkit.getServer().getPluginManager().registerEvents(new BlockBreakListener(this), this);
