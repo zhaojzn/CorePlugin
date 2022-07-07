@@ -29,33 +29,36 @@ public class PickaxeCommand implements CommandExecutor {
 
         if (sender instanceof Player) {
             Player player = (Player) sender;
-
-            ItemStack i = new ItemStack(Material.WOODEN_PICKAXE);
-            ItemMeta i_meta = i.getItemMeta();
-            i_meta.setUnbreakable(true);
-            i_meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&7Basic Pickaxe"));
-            i_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-            i.setItemMeta(i_meta);
-
-            NBTItem nbti = new NBTItem(i);
-            nbti.setInteger("PickaxeXP", 0);
-            nbti.setInteger("PickaxeBLOCKS", 0);
-            nbti.setInteger("PickaxeLEVEL", 1);
-            nbti.setDouble("PickaxeXP_NEEDED", 50.0);
-
-            PickaxeUtils p = new PickaxeUtils(main);
-            List<String> lore = p.updateLore(nbti);
-
-            ItemStack finalItem = nbti.getItem();
-            ItemMeta finalItemMeta = finalItem.getItemMeta();
-            finalItemMeta.setLore(lore);
-            finalItem.setItemMeta(finalItemMeta);
-
-            player.getInventory().addItem(finalItem);
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7You have received a custom pickaxe"));
+            givePickaxe(player);
 
         }
         return false;
+    }
+
+    public void givePickaxe(Player player){
+        ItemStack i = new ItemStack(Material.WOODEN_PICKAXE);
+        ItemMeta i_meta = i.getItemMeta();
+        i_meta.setUnbreakable(true);
+        i_meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&7Basic Pickaxe"));
+        i_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        i.setItemMeta(i_meta);
+
+        NBTItem nbti = new NBTItem(i);
+        nbti.setInteger("PickaxeXP", 0);
+        nbti.setInteger("PickaxeBLOCKS", 0);
+        nbti.setInteger("PickaxeLEVEL", 1);
+        nbti.setDouble("PickaxeXP_NEEDED", 50.0);
+
+        PickaxeUtils p = new PickaxeUtils(main);
+        List<String> lore = p.updateLore(nbti);
+
+        ItemStack finalItem = nbti.getItem();
+        ItemMeta finalItemMeta = finalItem.getItemMeta();
+        finalItemMeta.setLore(lore);
+        finalItem.setItemMeta(finalItemMeta);
+
+        player.getInventory().addItem(finalItem);
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7You have received a custom pickaxe"));
     }
 
 
