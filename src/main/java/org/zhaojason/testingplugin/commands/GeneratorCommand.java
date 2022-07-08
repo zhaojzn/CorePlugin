@@ -30,9 +30,9 @@ public class GeneratorCommand extends CommandHandler {
             ItemStack coalGen = new ItemStack(Material.COAL_ORE);
             ItemStackBuilder b = new ItemStackBuilder(coalGen);
             b.setName(Chat.color("&8Coal generator"));
+            
             ItemStackBuilder.Nbt i = b.nbt().set("generator", "COALORE");
             p.getInventory().addItem(i.build());
-            BlockGens gen = new BlockGens(BlockGens.TypeGens.COAL);
 
         }
     }

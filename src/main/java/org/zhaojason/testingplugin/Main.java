@@ -8,6 +8,7 @@ import org.zhaojason.testingplugin.commands.GeneratorCommand;
 import org.zhaojason.testingplugin.commands.MenuCommand;
 import org.zhaojason.testingplugin.commands.PickaxeCommand;
 import org.zhaojason.testingplugin.data.DataManager;
+import org.zhaojason.testingplugin.enums.BlockGens;
 import org.zhaojason.testingplugin.events.GeneratorPlace;
 import org.zhaojason.testingplugin.events.blockBreakEvent;
 import org.zhaojason.testingplugin.events.MoveEvent;
