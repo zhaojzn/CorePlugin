@@ -41,9 +41,6 @@ public final class Main extends JavaPlugin  {
             System.out.println(p.getName());
         }
         dataManager = new DataManager(this);
-        BlockGens.TypeGens gen = BlockGens.TypeGens.COAL;
-
-
     }
 
     public DataManager getDataManager() {

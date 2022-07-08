@@ -2,6 +2,9 @@ package org.zhaojason.testingplugin.events;
 
 import de.tr7zw.nbtapi.NBTItem;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -27,23 +30,17 @@ public class GeneratorPlace implements Listener {
             String generator = nbti.getString("generator");
             BlockGens genName = new BlockGens(generator);
             BlockGens.TypeGens genType = genName.getGenType();
+            Location loc = e.getBlockPlaced().getLocation();
             if(genType != null){
-                System.out.println(genType.getGen());
-                System.out.println(genType.getMaterial());
-                System.out.println(genType.getRegenTime());
+                addGenToData(genType.getGen().toString(), loc, player, genType.getDisplayName(), e.getBlockPlaced().getType());
             }
 
-            /*
-            if(nbti.getString("generator").equals("COALORE")){
-                Bukkit.broadcastMessage(Chat.color("&7A coal generator has been placed at ") + e.getBlockPlaced().getLocation());
-                DataManager data = new DataManager(main);
-                data.setGenerator(e.getBlockPlaced().getLocation(), "COALGEN");
-
-
-            }
-
-             */
         }
 
+    }
+    public void addGenToData(String genName, Location location, Player p, String genDisplayName, Material material){
+        DataManager data = new DataManager(main);
+        data.setGenerator(location, genName, material.toString());
+        p.sendMessage(Chat.color("&8[&7CoreGenerators&8] ") + genDisplayName + Chat.color("&7has been placed."));
     }
 }

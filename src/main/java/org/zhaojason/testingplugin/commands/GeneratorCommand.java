@@ -1,5 +1,6 @@
 package org.zhaojason.testingplugin.commands;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
@@ -17,7 +18,7 @@ public class GeneratorCommand extends CommandHandler {
     public GeneratorCommand() {
             super(
                     "generator",
-                    new String[]{"gens"},
+                    new String[]{"gens", "gen"},
                     "Generators",
                     "admin"
             );
@@ -27,14 +28,27 @@ public class GeneratorCommand extends CommandHandler {
     public void execute(CommandSender sender, String[] args) {
         if(sender instanceof Player){
             Player p = (Player) sender;
-            ItemStack coalGen = new ItemStack(Material.COAL_ORE);
-            ItemStackBuilder b = new ItemStackBuilder(coalGen);
-            b.setName(Chat.color("&8Coal generator"));
-            
-            ItemStackBuilder.Nbt i = b.nbt().set("generator", "COALORE");
-            p.getInventory().addItem(i.build());
+
+
+            p.getInventory().addItem(createGen(
+                    Material.COAL_ORE,
+                    Chat.color("&8Coal Generator "),
+                    "COALGEN"
+            ).build());
+            p.getInventory().addItem(createGen(
+                    Material.IRON_ORE,
+                    Chat.color("&7Iron Generator "),
+                    "IRONGEN"
+            ).build());
 
         }
+    }
+
+    public ItemStackBuilder.Nbt createGen(Material material, String displayName, String nbtName){
+        ItemStack gen = new ItemStack(material);
+        ItemStackBuilder genB= new ItemStackBuilder(gen);
+        genB.setName(displayName);
+        return genB.nbt().set("generator", nbtName);
     }
 
     @Override

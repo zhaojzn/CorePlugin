@@ -1,7 +1,9 @@
 package org.zhaojason.testingplugin.data;
 
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.zhaojason.testingplugin.Main;
 
@@ -55,10 +57,24 @@ public class DataManager {
     }
 
 
+
     //Generator setters
-    public void setGenerator(Location l, String type){
+
+    public boolean checkGenExists(Location l, Material mat){
+        String z = l.toString().replaceAll("\\.",",");
+        if(blocksLocConfig.get(z) != null){
+            System.out.println((blocksLocConfig.getString(z + ".material")) + " - " + mat.toString());
+            if((blocksLocConfig.getString(z + ".material")).equals(mat.toString())){
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+    public void setGenerator(Location l, String type, String material){
         String z = l.toString().replaceAll("\\.",",");
         blocksLocConfig.set(z + ".type", type);
+        blocksLocConfig.set(z + ".material", material);
         fileSave();
     }
 
