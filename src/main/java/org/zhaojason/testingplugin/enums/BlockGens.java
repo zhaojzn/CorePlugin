@@ -3,10 +3,23 @@ package org.zhaojason.testingplugin.enums;
 import org.bukkit.Material;
 
 public class BlockGens {
-    TypeGens typeGens;
+    String name;
 
-    public BlockGens(TypeGens typeGens) {
-        this.typeGens = typeGens;
+    public BlockGens(String name) {
+        this.name = name;
+    }
+
+    public TypeGens getGenType(){
+        switch (name){
+            case "COALGEN":
+                return TypeGens.COAL;
+            case "IRONGEN":
+                return TypeGens.IRON;
+            case "GOLDGEN":
+                return TypeGens.GOLD;
+            default:
+                return null;
+        }
     }
 
     public enum TypeGens {

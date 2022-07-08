@@ -1,6 +1,7 @@
 package org.zhaojason.testingplugin;
 
 import org.bukkit.Bukkit;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.zhaojason.testingplugin.commands.DataCommand;
@@ -40,6 +41,8 @@ public final class Main extends JavaPlugin  {
             System.out.println(p.getName());
         }
         dataManager = new DataManager(this);
+        BlockGens.TypeGens gen = BlockGens.TypeGens.COAL;
+
 
     }
 
