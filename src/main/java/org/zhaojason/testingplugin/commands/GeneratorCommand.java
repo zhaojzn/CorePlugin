@@ -1,15 +1,12 @@
-package org.zhaojason.testingplugin.Commands;
+package org.zhaojason.testingplugin.commands;
 
-import de.tr7zw.nbtapi.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.zhaojason.testingplugin.utils.Chat;
 import org.zhaojason.testingplugin.utils.ItemStackBuilder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GeneratorCommand extends CommandHandler {

@@ -1,16 +1,8 @@
-package org.zhaojason.testingplugin.Commands;
+package org.zhaojason.testingplugin.commands;
 
-import de.tr7zw.nbtapi.NBTItem;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemFlag;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.zhaojason.testingplugin.Data.DataManager;
+import org.zhaojason.testingplugin.data.DataManager;
 import org.zhaojason.testingplugin.Main;
 import org.zhaojason.testingplugin.utils.PickaxeUtils;
 

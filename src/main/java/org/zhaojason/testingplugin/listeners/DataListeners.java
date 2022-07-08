@@ -1,4 +1,4 @@
-package org.zhaojason.testingplugin.Listeners;
+package org.zhaojason.testingplugin.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

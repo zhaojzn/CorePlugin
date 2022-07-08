@@ -1,4 +1,4 @@
-package org.zhaojason.testingplugin.Commands;
+package org.zhaojason.testingplugin.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

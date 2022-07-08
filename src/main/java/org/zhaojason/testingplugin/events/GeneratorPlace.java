@@ -1,4 +1,4 @@
-package org.zhaojason.testingplugin.Events;
+package org.zhaojason.testingplugin.events;
 
 import de.tr7zw.nbtapi.NBTItem;
 import org.bukkit.Bukkit;
@@ -7,8 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.zhaojason.testingplugin.Data.DataManager;
+import org.zhaojason.testingplugin.data.DataManager;
 import org.zhaojason.testingplugin.Main;
 import org.zhaojason.testingplugin.utils.Chat;
 

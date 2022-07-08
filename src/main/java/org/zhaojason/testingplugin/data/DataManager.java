@@ -1,4 +1,4 @@
-package org.zhaojason.testingplugin.Data;
+package org.zhaojason.testingplugin.data;
 
 
 import org.bukkit.Location;

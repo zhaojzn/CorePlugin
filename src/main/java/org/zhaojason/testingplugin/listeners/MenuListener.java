@@ -1,12 +1,10 @@
-package org.zhaojason.testingplugin.Listeners;
+package org.zhaojason.testingplugin.listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.PlayerInventory;
-import org.zhaojason.testingplugin.Commands.PickaxeCommand;
 import org.zhaojason.testingplugin.Main;
 import org.zhaojason.testingplugin.utils.PickaxeUtils;
 

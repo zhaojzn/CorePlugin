@@ -1,12 +1,11 @@
-package org.zhaojason.testingplugin.Commands;
+package org.zhaojason.testingplugin.commands;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.zhaojason.testingplugin.Data.DataManager;
+import org.zhaojason.testingplugin.data.DataManager;
 import org.zhaojason.testingplugin.Main;
 import org.zhaojason.testingplugin.utils.Chat;
 
-import javax.swing.*;
 import java.util.List;
 
 

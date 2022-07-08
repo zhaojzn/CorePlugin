@@ -3,16 +3,16 @@ package org.zhaojason.testingplugin;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.zhaojason.testingplugin.Commands.DataCommand;
-import org.zhaojason.testingplugin.Commands.GeneratorCommand;
-import org.zhaojason.testingplugin.Commands.MenuCommand;
-import org.zhaojason.testingplugin.Commands.PickaxeCommand;
-import org.zhaojason.testingplugin.Data.DataManager;
-import org.zhaojason.testingplugin.Events.GeneratorPlace;
-import org.zhaojason.testingplugin.Events.blockBreakEvent;
-import org.zhaojason.testingplugin.Events.MoveEvent;
-import org.zhaojason.testingplugin.Listeners.MenuListener;
-import org.zhaojason.testingplugin.Listeners.DataListeners;
+import org.zhaojason.testingplugin.commands.DataCommand;
+import org.zhaojason.testingplugin.commands.GeneratorCommand;
+import org.zhaojason.testingplugin.commands.MenuCommand;
+import org.zhaojason.testingplugin.commands.PickaxeCommand;
+import org.zhaojason.testingplugin.data.DataManager;
+import org.zhaojason.testingplugin.events.GeneratorPlace;
+import org.zhaojason.testingplugin.events.blockBreakEvent;
+import org.zhaojason.testingplugin.events.MoveEvent;
+import org.zhaojason.testingplugin.listeners.MenuListener;
+import org.zhaojason.testingplugin.listeners.DataListeners;
 
 public final class Main extends JavaPlugin  {
 
