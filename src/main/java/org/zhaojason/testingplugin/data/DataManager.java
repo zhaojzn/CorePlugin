@@ -13,8 +13,8 @@ public class DataManager {
 
 
     private File[] file;
-    private YamlConfiguration balanceConfig;
-    private YamlConfiguration blocksLocConfig;
+    private final YamlConfiguration balanceConfig;
+    private final YamlConfiguration blocksLocConfig;
 
     public DataManager(Main main) {
         if(!main.getDataFolder().exists()){

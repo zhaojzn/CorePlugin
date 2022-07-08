@@ -1,9 +1,12 @@
 package org.zhaojason.testingplugin.commands;
 
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.block.BlockShearEntityEvent;
 import org.bukkit.inventory.ItemStack;
+import org.zhaojason.testingplugin.enums.BlockGens;
 import org.zhaojason.testingplugin.utils.Chat;
 import org.zhaojason.testingplugin.utils.ItemStackBuilder;
 
@@ -12,12 +15,12 @@ import java.util.List;
 public class GeneratorCommand extends CommandHandler {
 
     public GeneratorCommand() {
-        super(
-                "generator",
-                new String[]{"gens"},
-                "Generators",
-                "admin"
-        );
+            super(
+                    "generator",
+                    new String[]{"gens"},
+                    "Generators",
+                    "admin"
+            );
     }
 
     @Override
@@ -29,6 +32,8 @@ public class GeneratorCommand extends CommandHandler {
             b.setName(Chat.color("&8Coal generator"));
             ItemStackBuilder.Nbt i = b.nbt().set("generator", "COALORE");
             p.getInventory().addItem(i.build());
+            BlockGens gen = new BlockGens(BlockGens.TypeGens.COAL);
+
         }
     }
 
