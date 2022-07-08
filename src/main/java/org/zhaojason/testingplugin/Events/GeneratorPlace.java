@@ -8,9 +8,15 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.zhaojason.testingplugin.Data.DataManager;
+import org.zhaojason.testingplugin.Main;
 import org.zhaojason.testingplugin.utils.Chat;
 
 public class GeneratorPlace implements Listener {
+    private final Main main;
+    public GeneratorPlace(Main main){
+        this.main = main;
+    }
     @EventHandler
     public void onGeneratorPlace(BlockPlaceEvent e){
         Player player = e.getPlayer();
@@ -19,6 +25,10 @@ public class GeneratorPlace implements Listener {
         if(nbti.hasKey("generator")){
             if(nbti.getString("generator").equals("COALORE")){
                 Bukkit.broadcastMessage(Chat.color("&7A coal generator has been placed at ") + e.getBlockPlaced().getLocation());
+                DataManager data = new DataManager(main);
+                data.setGenerator(e.getBlockPlaced().getLocation(), "COALGEN");
+
+
             }
         }
 

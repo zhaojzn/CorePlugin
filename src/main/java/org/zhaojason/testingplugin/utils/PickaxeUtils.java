@@ -25,9 +25,7 @@ public class PickaxeUtils {
             s = s.replace("%blocks%", Integer.toString(nbti.getInteger("PickaxeBLOCKS")));
             s = s.replace("%xp%", Integer.toString(nbti.getInteger("PickaxeXP")));
             s = s.replace("%level%", Integer.toString(nbti.getInteger("PickaxeLEVEL")));
-            System.out.println(nbti.getInteger("PickaxeXP") + "-" + nbti.getDouble("PickaxeXP_NEEDED"));
             double percent = ((double) nbti.getInteger("PickaxeXP")/nbti.getDouble("PickaxeXP_NEEDED")) * 100;
-            System.out.println(Math.round(percent));
             s = s.replace("%percentage%", Double.toString(percent));
             s = s.replace("%xp_needed%", Double.toString(nbti.getDouble("PickaxeXP_NEEDED")));
             lore.add(ChatColor.translateAlternateColorCodes('&', s));

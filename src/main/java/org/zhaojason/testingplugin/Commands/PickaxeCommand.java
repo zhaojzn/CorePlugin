@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.zhaojason.testingplugin.Data.DataManager;
 import org.zhaojason.testingplugin.Main;
 import org.zhaojason.testingplugin.utils.PickaxeUtils;
 
@@ -37,6 +38,7 @@ public class PickaxeCommand extends CommandHandler {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             new PickaxeUtils(main).givePickaxe(player);
+            System.out.println(new DataManager(main).getBalance(player.getUniqueId()));
 
         }
     }
