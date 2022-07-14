@@ -49,6 +49,7 @@ public class PickaxeUtils {
         i_meta.setUnbreakable(true);
         i_meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&7Basic Pickaxe"));
         i_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        i_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         i.setItemMeta(i_meta);
 
         NBTItem nbti = new NBTItem(i);
